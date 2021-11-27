@@ -1,14 +1,21 @@
 
 import App from './app';
-import CardsController from './controllers/cardsController';
-import InstallmentsController from "./controllers/installmentsController";
- 
+import * as dotenv from "dotenv";
+import router from './routes'; 
+dotenv.config();
+
+
+const PORT: number = process.env.PORT ? 
+      parseInt(process.env.PORT as string, 10) 
+      : 3000;
+
+let dbConnection;
+
+
 const app = new App(
-  [
-    new CardsController(),
-    new InstallmentsController(),
-  ],
-  3500,
+  [],
+  PORT,
+  [router]
 );
  
 app.listen();
