@@ -1,7 +1,7 @@
 
 import App from './app';
 import * as dotenv from "dotenv";
-import router from './routes'; 
+import router from './routes';
 dotenv.config();
 
 
@@ -13,7 +13,6 @@ let dbConnection;
 
 
 const app = new App(
-  [],
   PORT,
   [router]
 );

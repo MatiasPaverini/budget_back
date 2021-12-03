@@ -1,5 +1,7 @@
 
-class Cors {
+
+class Logger {
+    
     constructor() {
         
     }

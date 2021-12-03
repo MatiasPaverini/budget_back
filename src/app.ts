@@ -1,18 +1,14 @@
 import express from 'express';
-import cors from 'cors';
-import helmet from 'helmet';
  
 class App {
   public app: express.Application;
   public port: number;
  
   constructor(
-    middlewares: Array<any>, 
     port: number,
     routes: Array<express.Router>) {
     this.app = express();
     this.port = port;
-    this.middlewares(middlewares);
     this.routes(routes);
  
   }
