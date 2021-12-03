@@ -10,7 +10,7 @@ const router = express.Router();
 const basePath = "/v1"
 
 //Logging
-router.use(morgan.dev);
+//router.use(morgan.dev);
 
 // Parse the request 
 router.use(express.urlencoded({ extended: false }));
@@ -35,6 +35,7 @@ router.use((req, res, next) => {
 //Credit Cards
 
 router.get('/credit-cards', (request, response) => {
+    response.send({message: "hello"});
 });
 
 router.post('/credit-cards', (request, response) => {

@@ -1,7 +1,7 @@
 
 import App from './app';
 import * as dotenv from "dotenv";
-import router from './routes';
+import router from './routes/routes';
 dotenv.config();
 
 

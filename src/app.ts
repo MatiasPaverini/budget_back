@@ -13,16 +13,6 @@ class App {
  
   }
 
-  public addMiddleware(middleware: any) {
-    this.app.use(middleware);
-  }
-
-  private middlewares(mware: any[]) {
-    mware.forEach((middleware) => {
-      this.app.use(middleware);
-    });
-  }
-
   private routes(routes: Array<express.Router>) {
     routes.forEach((route) => {
       this.app.use(route);
