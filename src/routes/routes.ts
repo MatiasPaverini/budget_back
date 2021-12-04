@@ -34,6 +34,13 @@ router.use((req, res, next) => {
 
 //Credit Cards
 
+//Get one
+router.get('/credit-cards/:id', (request, response) => {
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.getAllCards(request, response);
+    response.send(JSON.stringify(resp));
+});
+
 //Get All
 router.get('/credit-cards', (request, response) => {
     //response.send({message: "hello"});
@@ -42,12 +49,6 @@ router.get('/credit-cards', (request, response) => {
     response.send(JSON.stringify(resp));
 });
 
-//Get one
-router.get('/credit-cards/:id', (request, response) => {
-    const cards: CardsController = new CardsController();
-    const resp: any = cards.getAllCards(request, response);
-    response.send(JSON.stringify(resp));
-});
 
 //Create new card
 router.post('/credit-cards/:id', (request, response) => {

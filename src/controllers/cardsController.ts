@@ -19,17 +19,16 @@ export class CardsController {
         }
     ];
 
-    /*constructor() {
-        this.initializeRoutes();
-    }
-
-    public initializeRoutes() {
-        this.router.get(this.path, this.getAllCards);
-        this.router.post(this.path, this.createCard);
-    }*/
-
     getAllCards (request: express.Request, response: express.Response) {
         return {"status": 200, "cards": this.cards};
+    }
+
+    getOneCard(request: express.Request, response: express.Response) {
+        return this.cards.filter( card => {
+            if (card.number === Number.parseInt(request.params.id)) {
+                return card;
+            }
+        })
     }
 
     createCard (request: express.Request, response: express.Response) {
