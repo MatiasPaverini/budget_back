@@ -1,6 +1,6 @@
 import * as express from 'express';
 
-class CardsController {
+export class CardsController {
     public path = 'cards';
     public router = express.Router();
 
@@ -19,37 +19,35 @@ class CardsController {
         }
     ];
 
-    constructor() {
+    /*constructor() {
         this.initializeRoutes();
     }
 
     public initializeRoutes() {
         this.router.get(this.path, this.getAllCards);
         this.router.post(this.path, this.createCard);
+    }*/
+
+    getAllCards (request: express.Request, response: express.Response) {
+        return {"status": 200, "cards": this.cards};
     }
 
-    getAllCards = (request: express.Request, response: express.Response) => {
-        response.send(this.cards);
-    }
-
-    createCard = (request: express.Request, response: express.Response) => {
+    createCard (request: express.Request, response: express.Response) {
         const card: any = request.body;
         this.cards.push(card);
-        response.send(card);
+        return card;
     }
 
-    patchCard = (request: express.Request, response: express.Response) => {
+    patchCard (request: express.Request, response: express.Response) {
         //Update card data partially
     }
 
-    updateCard = (request: express.Request, response: express.Response) => {
+    updateCard (request: express.Request, response: express.Response) {
         //Update card full data
     }
 
-    deleteCard = (request: express.Request, response: express.Response) => {
+    deleteCard (request: express.Request, response: express.Response) {
         //Delete card Data
     }
 
 }
-
-export default CardsController;

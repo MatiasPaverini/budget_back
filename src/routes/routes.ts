@@ -1,5 +1,5 @@
 import * as express from 'express';
-import CardsController from '../controllers/cardsController';
+import { CardsController } from '../controllers/cardsController';
 import ExpensesController from '../controllers/expensesController';
 import InstallmentsController from '../controllers/installmentsController';
 import InvestmentsController from '../controllers/investmentsController';
@@ -34,11 +34,23 @@ router.use((req, res, next) => {
 
 //Credit Cards
 
+//Get All
 router.get('/credit-cards', (request, response) => {
-    response.send({message: "hello"});
+    //response.send({message: "hello"});
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.getAllCards(request, response);
+    response.send(JSON.stringify(resp));
 });
 
-router.post('/credit-cards', (request, response) => {
+//Get one
+router.get('/credit-cards/:id', (request, response) => {
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.getAllCards(request, response);
+    response.send(JSON.stringify(resp));
+});
+
+//Create new card
+router.post('/credit-cards/:id', (request, response) => {
 
 });
 
