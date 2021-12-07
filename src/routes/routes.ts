@@ -37,7 +37,7 @@ router.use((req, res, next) => {
 //Get one
 router.get('/credit-cards/:id', (request, response) => {
     const cards: CardsController = new CardsController();
-    const resp: any = cards.getAllCards(request, response);
+    const resp: any = cards.getOneCard(request, response);
     response.send(JSON.stringify(resp));
 });
 
@@ -55,15 +55,15 @@ router.post('/credit-cards/:id', (request, response) => {
 
 });
 
-router.patch('/credit-cards', (request, response) => {
+router.patch('/credit-cards/:id', (request, response) => {
 
 });
 
-router.put('/credit-cards', (request, response) => {
+router.put('/credit-cards/:id', (request, response) => {
 
 });
 
-router.delete('/credit-cards', (request, response) => {
+router.delete('/credit-cards/:id', (request, response) => {
 
 });
 
