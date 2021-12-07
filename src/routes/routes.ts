@@ -43,7 +43,6 @@ router.get('/credit-cards/:id', (request, response) => {
 
 //Get All
 router.get('/credit-cards', (request, response) => {
-    //response.send({message: "hello"});
     const cards: CardsController = new CardsController();
     const resp: any = cards.getAllCards(request, response);
     response.send(JSON.stringify(resp));
@@ -52,19 +51,27 @@ router.get('/credit-cards', (request, response) => {
 
 //Create new card
 router.post('/credit-cards/:id', (request, response) => {
-
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.createCard(request, response);
+    response.send(JSON.stringify(resp));
 });
 
 router.patch('/credit-cards/:id', (request, response) => {
-
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.patchCard(request, response);
+    response.send(JSON.stringify(resp));
 });
 
 router.put('/credit-cards/:id', (request, response) => {
-
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.updateCard(request, response);
+    response.send(JSON.stringify(resp));
 });
 
 router.delete('/credit-cards/:id', (request, response) => {
-
+    const cards: CardsController = new CardsController();
+    const resp: any = cards.deleteCard(request, response);
+    response.send(JSON.stringify(resp));
 });
 
 

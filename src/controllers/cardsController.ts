@@ -2,7 +2,6 @@ import * as express from 'express';
 
 export class CardsController {
     public path = 'cards';
-    public router = express.Router();
 
     private cards: any[] = [
         {
@@ -25,7 +24,9 @@ export class CardsController {
 
     getOneCard(request: express.Request, response: express.Response) {
         return this.cards.filter( card => {
-            if (card.number === Number.parseInt(request.params.id)) {
+            if (( request.params.id != undefined 
+                || request.params.id != null ) 
+                && card.number === Number.parseInt(request.params.id)) {
                 return card;
             }
         })
