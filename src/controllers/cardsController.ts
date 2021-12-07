@@ -1,35 +1,24 @@
 import * as express from 'express';
+import { ICardService } from "../services/cardsService";
 
 export class CardsController {
+
+    private service: ICardService;
+
+    constructor(cardsService: ICardService) {
+        this.service = cardsService;
+    }
+
     public path = 'cards';
 
-    private cards: any[] = [
-        {
-            number: 1234,
-            vendor: "Visa", //Change to enum
-            bank: "Galicia", //Change to enum
-            level: "Platinum" //Change to enum
-        },
-        {
-            number: 5678,
-            vendor: "MasterCard", //Change to enum
-            bank: "Galicia", //Change to enum
-            level: "Platinum" //Change to enum
-        }
-    ];
-
     getAllCards (request: express.Request, response: express.Response) {
-        return {"status": 200, "cards": this.cards};
+       
+        return {"status": 200, "cards":  this.service.getAll()};
     }
 
     getOneCard(request: express.Request, response: express.Response) {
-        return this.cards.filter( card => {
-            if (( request.params.id != undefined 
-                || request.params.id != null ) 
-                && card.number === Number.parseInt(request.params.id)) {
-                return card;
-            }
-        })
+        return {"status": 200, 
+        "card": this.service.getOne(Number.parseInt(request.params.id))}
     }
 
     createCard (request: express.Request, response: express.Response) {

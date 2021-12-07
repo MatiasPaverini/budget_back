@@ -19,13 +19,13 @@ describe("Cards controller tests", () => {
 
     it("Should return one cards", () => {
         const controller = new CardsController();
-        
+        const mockedRequest = () => {return {params: {id: 1234}} };
         const resp: express.Response = <express.Response> <any> (Sinon.mock());
-        const req: express.Request = <express.Request> <any> (Sinon.mock());
+        const req: express.Request = <express.Request> <any> (Sinon.stub().returns(mockedRequest));
         const result = controller.getOneCard(req, resp);
 
-        //expect(result.status).to.be.equal(200);
-        //expect(result.cards).to.be.instanceOf(Array);
+        expect(result.status).to.be.equal(200);
+        expect(result.card.id).to.be.equal(1234);
     });
 
     it("Should create a card", () => {
