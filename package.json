@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --pretty --transpile-only src/index.ts",
     "test": "nyc mocha -r ts-node/register '__tests__/**/*.ts'",
-    "prettier": "prettier 'src/**/*.ts",
-    "prettier:fix": "prettier --write 'src/**/*.ts",
+    "prettier": "prettier 'src/**/*.ts'",
+    "prettier:fix": "prettier --write 'src/**/*.ts'",
     "eslint": "eslint 'src/**/*.ts'",
     "eslint:fix": "eslint --fix 'src/**/*.ts'"
   },
