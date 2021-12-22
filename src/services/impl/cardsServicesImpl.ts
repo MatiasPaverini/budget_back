@@ -1,5 +1,8 @@
 import { Card } from "../../models/card";
 import { Cards } from "../../models/cards";
+import { Banks } from "../../models/enums/banks";
+import { CardAffiliation } from "../../models/enums/cardAffiliation";
+import { CardTypes } from "../../models/enums/cardTypes";
 import { ICardService } from "../cardsService";
 
 export class CardsServicesImpl implements ICardService {
@@ -7,15 +10,15 @@ export class CardsServicesImpl implements ICardService {
     private cards: Cards = new Cards("Matías",
     [new Card(
             1234,
-            "Visa", //Change to enum
-            "Galicia", //Change to enum
-            "Platinum" //Change to enum
+            CardAffiliation.VISA, 
+            Banks.GALICIA,
+            CardTypes.PLATINUM 
     ),
     new Card(
             5678,
-            "MasterCard", //Change to enum
-            "Galicia", //Change to enum
-            "Platinum" //Change to enum
+            CardAffiliation.MASTERCARD,
+            Banks.GALICIA, 
+           CardTypes.PLATINUM 
     )
     ]);
 
