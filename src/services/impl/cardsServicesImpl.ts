@@ -36,7 +36,7 @@ export class CardsServicesImpl implements ICardService {
     }
     
     getAll(): any {
-
+        return this.cards.getCards;
     }
     
     save(card:any): any {

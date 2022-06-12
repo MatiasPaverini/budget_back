@@ -23,7 +23,7 @@ export class CardsController {
 
     createCard (request: express.Request, response: express.Response) {
         const card: any = request.body;
-        this.cards.push(card);
+        this.service.save(card);
         return card;
     }
 

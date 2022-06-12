@@ -1,10 +1,10 @@
 import * as express from 'express';
 import { CardsController } from '../controllers/cardsController';
 import ExpensesController from '../controllers/expensesController';
-import InstallmentsController from '../controllers/installmentsController';
 import InvestmentsController from '../controllers/investmentsController';
 import UsersController from "../controllers/usersController";
 import morgan from "morgan";
+import { CardsServicesImpl } from '../services/impl/cardsServicesImpl';
 const router = express.Router();
 
 const basePath = "/v1"
@@ -18,7 +18,7 @@ router.use(express.urlencoded({ extended: false }));
 // Takes care of JSON data
 router.use(express.json());
 
-router.use((req, res, next) => {
+router.use((req: any, res: any, next: any) => {
     
     // set the CORS policy
     res.header('Access-Control-Allow-Origin', '*');
@@ -35,15 +35,15 @@ router.use((req, res, next) => {
 //Credit Cards
 
 //Get one
-router.get('/credit-cards/:id', (request, response) => {
-    const cards: CardsController = new CardsController();
+router.get('/credit-cards/:id', (request: any, response: any) => {
+    const cards: CardsController = new CardsController(new CardsServicesImpl);
     const resp: any = cards.getOneCard(request, response);
     response.send(JSON.stringify(resp));
 });
 
 //Get All
 router.get('/credit-cards', (request, response) => {
-    const cards: CardsController = new CardsController();
+    const cards: CardsController = new CardsController(new CardsServicesImpl);
     const resp: any = cards.getAllCards(request, response);
     response.send(JSON.stringify(resp));
 });
@@ -51,25 +51,25 @@ router.get('/credit-cards', (request, response) => {
 
 //Create new card
 router.post('/credit-cards/:id', (request, response) => {
-    const cards: CardsController = new CardsController();
+    const cards: CardsController = new CardsController(new CardsServicesImpl);
     const resp: any = cards.createCard(request, response);
     response.send(JSON.stringify(resp));
 });
 
 router.patch('/credit-cards/:id', (request, response) => {
-    const cards: CardsController = new CardsController();
+    const cards: CardsController = new CardsController(new CardsServicesImpl);
     const resp: any = cards.patchCard(request, response);
     response.send(JSON.stringify(resp));
 });
 
 router.put('/credit-cards/:id', (request, response) => {
-    const cards: CardsController = new CardsController();
+    const cards: CardsController = new CardsController(new CardsServicesImpl);
     const resp: any = cards.updateCard(request, response);
     response.send(JSON.stringify(resp));
 });
 
 router.delete('/credit-cards/:id', (request, response) => {
-    const cards: CardsController = new CardsController();
+    const cards: CardsController = new CardsController(new CardsServicesImpl);
     const resp: any = cards.deleteCard(request, response);
     response.send(JSON.stringify(resp));
 });
