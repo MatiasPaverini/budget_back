@@ -5,6 +5,7 @@ import InvestmentsController from '../controllers/investmentsController';
 import UsersController from "../controllers/usersController";
 import morgan from "morgan";
 import { CardsServicesImpl } from '../services/impl/cardsServicesImpl';
+import { ExpensesServiceImpl } from '../services/impl/expensesServiceImpl';
 const router = express.Router();
 
 const basePath = "/v1"
@@ -115,7 +116,17 @@ router.delete('/investments', (request, response) => {
 
 //Expenses
 
+//Get one
+router.get('/expenses/:id', (request: any, response: any) => {
+    const expenses: ExpensesController = new ExpensesController(new ExpensesServiceImpl);
+    const resp: any = expenses.getOneExpense(request, response);
+    response.send(JSON.stringify(resp));
+});
+
 router.get('/expenses', (request, response) => {
+    const expenses: ExpensesController = new ExpensesController(new ExpensesServiceImpl);
+    const resp: any = expenses.getAllExpenses(request, response);
+    response.send(JSON.stringify(resp));
 });
 
 router.post('/expenses', (request, response) => {
