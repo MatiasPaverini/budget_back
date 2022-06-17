@@ -1,5 +1,5 @@
 
-export interface ExpensesService {
+export interface IExpensesService {
 
     getOne(id: number): any;
     getAll(): any;

@@ -7,7 +7,7 @@ import { ICardService } from "../cardsService";
 
 export class CardsServicesImpl implements ICardService {
 
-    private cards: Cards = new Cards("Matías",
+    private cards: Cards = new Cards("Matías", "Paverini",
     [new Card(
             1234,
             CardAffiliation.VISA, 

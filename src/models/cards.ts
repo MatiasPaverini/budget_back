@@ -2,18 +2,23 @@ import { Card } from "./card";
 
 export class Cards {
     
-    private cardHolder: string;
+    private cardHolderName: string;
+    private cardHolderSurname: string;
     private cards: Card[];
 
-    constructor(cardHolder: string, cards: Card[]) {
+    constructor(cardHolderName: string, cardHolderSurname: string, cards: Card[]) {
         this.cards = cards;
-        this.cardHolder = cardHolder;
+        this.cardHolderName = cardHolderName;
+        this.cardHolderSurname = cardHolderSurname;
     }
     
-    public get getCardHolder() : string {
-        return this.cardHolder;
+    public get getCardHolderName() : string {
+        return this.cardHolderName;
     }
 
+    public get getCardHolderSurname() : string {
+        return this.cardHolderSurname;
+    }
     
     public get getCards() : Card[] {
         return this.cards;
@@ -25,11 +30,13 @@ export class Cards {
     }
 
     
-    public set setCardHolder(v : string) {
-        this.cardHolder = v;
+    public set setCardHolderName(v : string) {
+        this.cardHolderName = v;
     }
     
-    
+    public set setCardHolderSurname(v: string) {
+        this.cardHolderSurname = v;
+    }
     
     
 }
